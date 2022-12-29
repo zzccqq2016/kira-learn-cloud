@@ -11,4 +11,5 @@ public interface PaymentService {
     Payment create(Payment payment);
 
     Payment getPaymentById(Integer id);
+    Payment getPaymentByIdTimeout(Integer id);
 }

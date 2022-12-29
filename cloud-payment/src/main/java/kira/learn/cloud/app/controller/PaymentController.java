@@ -33,7 +33,12 @@ public class PaymentController {
 
     @GetMapping("get/{id}")
     public CommonResp<?> get(@PathVariable Integer id) {
-        log.info("服务port:{}", port);
         return CommonResp.success(paymentService.getPaymentById(id));
+    }
+
+
+    @GetMapping("get/timeout/{id}")
+    public CommonResp<?> getTimeout(@PathVariable Integer id) {
+        return CommonResp.success(paymentService.getPaymentByIdTimeout(id));
     }
 }

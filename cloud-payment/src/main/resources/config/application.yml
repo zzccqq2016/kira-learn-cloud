@@ -20,3 +20,4 @@ spring:
       schema-locations: classpath*:db/schema/mysql.sql
 server:
   port: 8001
+

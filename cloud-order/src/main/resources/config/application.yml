@@ -20,11 +20,40 @@ spring:
       continue-on-error: true
       schema-locations: classpath*:db/schema/mysql.sql
 
+#feign:
+#  circuitbreaker:
+#    #开启fegin的服务降级
+#    enabled: true
+
+
+    #feign+hystrix fallback属性设置  https://blog.csdn.net/Mr_rain/article/details/89472167
+#hystrix:
+#  command:
+     # default默认全局生效
+
+    #    default:
+    # 具体到feignClient#方法
+#    PaymentClient#getTimeout(Integer):
+#      execution:
+#        timeout:
+#          enabled: true
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 9000
+
+
+
 
 server:
   port: 80
 
 
+
 logging:
   level:
     kira.learn.cloud.app.feign.PaymentClient: debug
+feign:
+  httpclient:
+    hc5:
+      socket-timeout: 10
+      socket-timeout-unit: seconds

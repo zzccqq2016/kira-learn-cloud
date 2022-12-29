@@ -1,5 +1,7 @@
 package kira.learn.cloud.app.controller;
 
+import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.date.TimeInterval;
 import kira.learn.cloud.app.feign.PaymentClient;
 import kira.learn.cloud.common.bean.common.CommonResp;
 import kira.learn.cloud.common.bean.po.Payment;
@@ -37,6 +39,20 @@ public class OrderController {
     public CommonResp<Payment> get(@PathVariable Integer id) {
 //        CommonResp resp = restTemplate.getForEntity(PAYMENT_URL + "/payment/get/" + id, CommonResp.class).getBody();
         return paymentClient.get(id);
+    }
+
+
+    @GetMapping("get/timeout/{id}")
+    public CommonResp<?> getTimeout(@PathVariable Integer id) {
+        TimeInterval timer = DateUtil.timer();
+        CommonResp<Payment> timeout = null;
+        try {
+            timeout = paymentClient.getTimeout(id);
+        }catch (Exception e){
+            //...
+        }
+        System.out.println(timer.interval());//花费毫秒数
+        return timeout;
     }
 
 }

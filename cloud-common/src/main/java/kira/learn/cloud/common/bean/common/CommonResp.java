@@ -86,16 +86,20 @@ public class CommonResp<T> {
     }
 
     public static <T> CommonResp<T> fail() {
-        return new CommonResp<T>(FAIL_CODE, FAIL_MESSAGE);
+        return new CommonResp<>(FAIL_CODE, FAIL_MESSAGE);
+    }
+
+    public static <T> CommonResp<T> fail(String message) {
+        return new CommonResp<>(FAIL_CODE, message);
     }
 
 
     public static <T> CommonResp<T> success(T data) {
-        return new CommonResp<T>(SUCCESS_CODE, SUCCESS_MESSAGE, data);
+        return new CommonResp<>(SUCCESS_CODE, SUCCESS_MESSAGE, data);
     }
 
     public static <T> CommonResp<T> success(T data, Long count) {
-        return new CommonResp<T>(SUCCESS_CODE, SUCCESS_MESSAGE, data, count);
+        return new CommonResp<>(SUCCESS_CODE, SUCCESS_MESSAGE, data, count);
     }
 
 
