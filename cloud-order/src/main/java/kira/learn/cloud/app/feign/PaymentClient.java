@@ -1,6 +1,5 @@
 package kira.learn.cloud.app.feign;
 
-import kira.learn.cloud.app.PaymentServer;
 import kira.learn.cloud.common.bean.common.CommonResp;
 import kira.learn.cloud.common.bean.po.Payment;
 import org.springframework.cloud.openfeign.FeignClient;

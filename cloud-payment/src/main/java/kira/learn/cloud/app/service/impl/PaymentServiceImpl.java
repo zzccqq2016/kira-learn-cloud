@@ -1,6 +1,7 @@
 package kira.learn.cloud.app.service.impl;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import kira.learn.cloud.app.dao.PaymentDao;
 import kira.learn.cloud.app.service.PaymentService;
 import kira.learn.cloud.common.bean.po.Payment;
@@ -32,17 +33,12 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public Payment getPaymentById(Integer id) {
-        try {
-            TimeUnit.SECONDS.sleep(2);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         return paymentDao.findById(id).orElse(new Payment());
     }
 
 
-//    @HystrixCommand(fallbackMethod = "getPaymentByIdTimeOutHandler",
-//            commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "6000")})
+    @HystrixCommand(fallbackMethod = "getPaymentByIdTimeOutHandler",
+            commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "6000")})
     @Override
     public Payment getPaymentByIdTimeout(Integer id) {
         try {

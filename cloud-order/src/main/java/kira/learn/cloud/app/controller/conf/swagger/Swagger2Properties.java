@@ -1,4 +1,4 @@
-package kira.learn.cloud.app.conf.swagger;
+package kira.learn.cloud.app.controller.conf.swagger;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

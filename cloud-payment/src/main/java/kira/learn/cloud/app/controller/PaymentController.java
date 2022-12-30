@@ -33,7 +33,9 @@ public class PaymentController {
 
     @GetMapping("get/{id}")
     public CommonResp<?> get(@PathVariable Integer id) {
-        return CommonResp.success(paymentService.getPaymentById(id));
+        CommonResp<Payment> success = CommonResp.success(paymentService.getPaymentById(id));
+        success.setCode(port);
+        return success;
     }
 
 

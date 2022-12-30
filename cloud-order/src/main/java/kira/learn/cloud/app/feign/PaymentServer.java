@@ -1,4 +1,4 @@
-package kira.learn.cloud.app;
+package kira.learn.cloud.app.feign;
 
 /**
  * @author: Zhang Chaoqing
