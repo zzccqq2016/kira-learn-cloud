@@ -1,6 +1,7 @@
 package kira.learn.cloud.app.service;
 
 
+import kira.learn.cloud.common.bean.common.CommonResp;
 import kira.learn.cloud.common.bean.po.Payment;
 
 /**
@@ -12,4 +13,7 @@ public interface PaymentService {
 
     Payment getPaymentById(Integer id);
     Payment getPaymentByIdTimeout(Integer id);
+
+    CommonResp<?> getResource();
+
 }

@@ -12,18 +12,20 @@ import org.springframework.web.bind.annotation.RequestBody;
  * @author: Zhang Chaoqing
  * @date: 2022/12/27 12:31
  */
-@FeignClient(value = PaymentServer.NAME, path = "payment", url = PaymentServer.URL)
+@FeignClient(value = PaymentServer.NAME, path = "payment", url = PaymentServer.URL, fallback = PaymentClientFallback.class)
 public interface PaymentClient {
 
 
     @PostMapping("create")
     CommonResp<Payment> create(@RequestBody Payment payment);
 
-//    @HystrixCommand(commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "6000")})
     @GetMapping("get/{id}")
     CommonResp<Payment> get(@PathVariable("id") Integer id);
 
     @GetMapping("get/timeout/{id}")
     CommonResp<Payment> getTimeout(@PathVariable("id") Integer id);
+
+    @GetMapping("get/resource/{id}")
+    public CommonResp<?> getResource(@PathVariable("id") Integer id);
 
 }

@@ -12,7 +12,9 @@ spring:
     username: root
     password: Zhangxu00!
     driver-class-name: com.mysql.cj.jdbc.Driver
-
+  # Spring Boot 2.6后，默认不建议循环引用。 需手动设置
+  main:
+    allow-circular-references: true
   sql:
     init:
       platform: mysql
@@ -20,16 +22,13 @@ spring:
       continue-on-error: true
       schema-locations: classpath*:db/schema/mysql.sql
 
-#feign:
-#  circuitbreaker:
-#    #开启fegin的服务降级
-#    enabled: true
 
 
-    #feign+hystrix fallback属性设置  https://blog.csdn.net/Mr_rain/article/details/89472167
-#hystrix:
-#  command:
-     # default默认全局生效
+
+      #feign+hystrix fallback属性设置  https://blog.csdn.net/Mr_rain/article/details/89472167
+      #hystrix:
+      #  command:
+      # default默认全局生效
 
     #    default:
     # 具体到feignClient#方法
@@ -52,8 +51,18 @@ server:
 logging:
   level:
     kira.learn.cloud.app.feign.PaymentClient: debug
+
+#feign.circuitbreaker.enable和 feign.sentinel.enable都生效。
 feign:
-  httpclient:
-    hc5:
-      socket-timeout: 10
-      socket-timeout-unit: seconds
+  client:
+    config:
+      #key对应feignClient name
+      payment:
+        #不设置connectTimeout会导致readTimeout设置不生效
+        connectTimeout: 3000
+        readTimeout: 2000
+
+  #  circuitbreaker:
+  #    enabled: true
+  sentinel:
+    enabled: true

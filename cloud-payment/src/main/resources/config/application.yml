@@ -12,6 +12,10 @@ spring:
     password: Zhangxu00!
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+  # Spring Boot 2.6后，默认不建议循环引用。 需手动设置
+  main:
+    allow-circular-references: true
+
   sql:
     init:
       platform: mysql

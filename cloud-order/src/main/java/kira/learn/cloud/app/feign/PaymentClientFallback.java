@@ -9,22 +9,29 @@ import org.springframework.stereotype.Service;
  * @date: 2022/12/29 16:18
  */
 @Service
-public class PaymentClientFallback implements PaymentClient{
+public class PaymentClientFallback implements PaymentClient {
 
 
     @Override
     public CommonResp<Payment> create(Payment payment) {
-        return CommonResp.fail("create fallback");
+        return CommonResp.fail("feign集成sentinel 服务降级");
     }
 
 
     @Override
     public CommonResp<Payment> get(Integer id) {
-        return CommonResp.fail("get fallback");
+        return CommonResp.fail("feign集成sentinel 服务降级");
     }
 
     @Override
     public CommonResp<Payment> getTimeout(Integer id) {
-        return CommonResp.fail("getTimeout fallback");
+        return CommonResp.fail("feign集成sentinel 服务降级");
     }
+
+    @Override
+    public CommonResp<?> getResource(Integer id) {
+        return CommonResp.fail("feign集成sentinel 服务降级");
+    }
+
+
 }

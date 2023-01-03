@@ -34,4 +34,11 @@ public class OrderController {
         return paymentClient.getTimeout(id);
     }
 
+
+    @GetMapping("get/resource/{id}")
+    public CommonResp<?> getResource(@PathVariable Integer id) {
+        return paymentClient.getResource(id);
+    }
+
+
 }

@@ -1,9 +1,10 @@
 package kira.learn.cloud.app.service.impl;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import kira.learn.cloud.app.dao.PaymentDao;
 import kira.learn.cloud.app.service.PaymentService;
+import kira.learn.cloud.common.bean.common.CommonResp;
 import kira.learn.cloud.common.bean.po.Payment;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -37,8 +38,6 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
 
-    @HystrixCommand(fallbackMethod = "getPaymentByIdTimeOutHandler",
-            commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "6000")})
     @Override
     public Payment getPaymentByIdTimeout(Integer id) {
         try {
@@ -49,16 +48,16 @@ public class PaymentServiceImpl implements PaymentService {
         return paymentDao.findById(id).orElse(new Payment());
     }
 
-
-    public Payment getPaymentByIdTimeOutHandler(Integer id){
-        Payment payment = new Payment();
-        payment.setId(port);
-        payment.setName("timeOutHandler");
-        return payment;
+    @SentinelResource(value = "getResource", blockHandler = "getResourceHandler")
+    @Override
+    public CommonResp<?> getResource() {
+        return CommonResp.success();
     }
 
 
-
+    public CommonResp<?> getResourceHandler(BlockException exception) {
+        return CommonResp.fail("block handler message");
+    }
 
 
 }
