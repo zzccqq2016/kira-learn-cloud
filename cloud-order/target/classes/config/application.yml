@@ -1,0 +1,62 @@
+spring:
+  application:
+    name: order
+
+  mvc:
+    pathmatch:
+      # 配置策略
+      matching-strategy: ant-path-matcher
+
+  datasource:
+    url: jdbc:${spring.sql.init.platform}://101.35.251.170:3306/kira_cloud?createDatabaseIfNotExist=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: Zhangxu00!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  sql:
+    init:
+      platform: mysql
+      mode: always
+      continue-on-error: true
+      schema-locations: classpath*:db/schema/mysql.sql
+
+
+
+
+
+
+
+
+server:
+  port: 80
+
+
+
+logging:
+  level:
+    kira.learn.cloud.app.feign.PaymentClient: debug
+
+
+feign:
+  circuitbreaker:
+    enabled: true
+  client:
+    config:
+      payment:
+        connect-timeout: 10000
+        read-timeout: 5000
+
+#feign+hystrix fallback属性设置  https://blog.csdn.net/Mr_rain/article/details/89472167
+#hystrix timeout默认时间短，需要设置大一点
+#hystrix:
+#  command:
+#    # default默认全局生效
+#    default:
+#      # 具体到feignClient#方法
+#      #    PaymentClient#getTimeout(Integer):
+#      execution:
+#        timeout:
+#          enabled: true
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 90000
