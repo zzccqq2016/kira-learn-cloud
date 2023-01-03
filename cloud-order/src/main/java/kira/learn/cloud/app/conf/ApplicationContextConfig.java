@@ -1,4 +1,4 @@
-package kira.learn.cloud.app.controller.conf;
+package kira.learn.cloud.app.conf;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
