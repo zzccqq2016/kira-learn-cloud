@@ -4,9 +4,4 @@ spring:
       server-addr: 101.35.251.170:8848
       config:
         enabled: true
-    sentinel:
-      transport:
-        #sentinel dashboard地址
-        dashboard: 127.0.0.1:8080
-        port: 8719
 

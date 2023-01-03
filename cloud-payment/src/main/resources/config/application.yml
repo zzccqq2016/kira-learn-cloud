@@ -22,6 +22,38 @@ spring:
       mode: always
       continue-on-error: true
       schema-locations: classpath*:db/schema/mysql.sql
+
+
+  cloud:
+    sentinel:
+      transport:
+        #sentinel dashboard地址
+        dashboard: 127.0.0.1:8080
+        port: 8719
+      datasource:
+        ds1:
+          nacos:
+            # nacos地址
+            server-addr: ${spring.cloud.nacos.server-addr}
+            # nacos中配置文件的data-id
+            data-id: ${spring.application.name}-sentinel
+            # nacos 分组
+            group-id: DEFAULT_GROUP
+            # 规则类型 流控
+            rule-type: flow
+#  [
+#    {
+#      "resource": "/payment/get/resource/{id}",
+#      "limitApp": "default",
+#      "grade": 1,                                    0:线程数 1:qps
+#      "count": 1,                                    单机阈值
+#      "strategy": 0,                                 0:直接 1:关联 2:链路
+#      "controlBehavior": 0                           0:快速失败 1:Warm up 2:排队等待
+#      "clusterMode": false                           是否集群
+#    }
+#  ]
+
+
 server:
   port: 8001
 
