@@ -11,7 +11,6 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
  */
 @SpringBootApplication
 @EntityScan("kira.learn.cloud.common")
-@EnableCircuitBreaker
 public class PaymentApplication {
     public static void main(String[] args) {
         SpringApplication.run(PaymentApplication.class, args);

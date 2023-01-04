@@ -18,6 +18,9 @@ spring:
       mode: always
       continue-on-error: true
       schema-locations: classpath*:db/schema/mysql.sql
+
+
 server:
   port: 8001
+
 
