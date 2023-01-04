@@ -2,6 +2,7 @@ package org.kira.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.metrics.buffering.BufferingApplicationStartup;
 
 /**
  * @author: Zhang Chaoqing
@@ -10,7 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SpringbootApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SpringbootApplication.class, args);
+        SpringApplication application = new SpringApplication(SpringbootApplication.class);
+        application.run(args);
     }
 
 
