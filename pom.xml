@@ -11,10 +11,7 @@
 
 
     <modules>
-        <module>cloud-payment</module>
-        <module>cloud-order</module>
-        <module>cloud-common</module>
-        <module>cloud-gateway</module>
+        <module>spring-boot</module>
     </modules>
 
 
