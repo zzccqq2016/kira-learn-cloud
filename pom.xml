@@ -15,6 +15,7 @@
         <module>cloud-order</module>
         <module>cloud-common</module>
         <module>cloud-gateway</module>
+        <module>cloud-user</module>
     </modules>
 
 
