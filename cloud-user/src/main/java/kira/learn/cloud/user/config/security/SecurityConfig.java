@@ -35,6 +35,7 @@ public class SecurityConfig {
                         loginProcessingUrl("/login");
 
         http.httpBasic();
+
         return http.build();
     }
 
