@@ -22,6 +22,11 @@ public class SecurityConfig {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
+
+
+
+
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests().anyRequest().authenticated();
@@ -36,6 +41,9 @@ public class SecurityConfig {
         http.csrf().disable();
         return http.build();
     }
+
+
+
 
     //    @Bean
     public HttpSessionEventPublisher httpSessionEventPublisher() {

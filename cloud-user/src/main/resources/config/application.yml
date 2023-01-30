@@ -25,3 +25,10 @@ spring:
       data-locations: classpath*:db/data/init-data-mysql.sql
       mode: always
 
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: google-client-id
+            client-secret: google-client-secret
