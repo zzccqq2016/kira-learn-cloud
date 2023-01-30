@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
  * @author: Zhang Chaoqing
  * @date: 2023/1/10 23:27
  */
-@Component
+//@Component
 @Slf4j
 public class AuthenticationSuccessListener implements ApplicationListener<AbstractAuthenticationEvent> {
     @Override
