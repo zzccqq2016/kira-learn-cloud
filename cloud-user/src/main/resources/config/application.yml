@@ -6,9 +6,9 @@ spring:
       # 配置策略
       matching-strategy: ant-path-matcher
 #  security:
-#    user:
-#      name: admin
-#      password: 123456
+  #    user:
+  #      name: admin
+  #      password: 123456
 
 
   datasource:
@@ -25,10 +25,11 @@ spring:
       data-locations: classpath*:db/data/init-data-mysql.sql
       mode: always
 
-  security:
-    oauth2:
-      client:
-        registration:
-          google:
-            client-id: google-client-id
-            client-secret: google-client-secret
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          google:
+#            client-id: google-client-id
+#            client-secret: google-client-secret
+#            redirectUri: http://127.0.0.1:8888/test
