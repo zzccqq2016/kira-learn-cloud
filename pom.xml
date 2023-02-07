@@ -11,11 +11,7 @@
 
 
     <modules>
-        <module>cloud-payment</module>
-        <module>cloud-order</module>
-        <module>cloud-common</module>
-        <module>cloud-gateway</module>
-        <module>cloud-user</module>
+        <module>kira-util</module>
     </modules>
 
 

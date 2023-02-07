@@ -1,7 +1,0 @@
-spring:
-  cloud:
-    nacos:
-      server-addr: 101.35.251.170:8848
-      config:
-        enabled: true
-
