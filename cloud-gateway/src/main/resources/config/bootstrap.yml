@@ -1,7 +1,7 @@
 spring:
   cloud:
     nacos:
-      server-addr: 101.35.251.170:8848
+      server-addr: 192.168.4.64
       config:
         enabled: true
 

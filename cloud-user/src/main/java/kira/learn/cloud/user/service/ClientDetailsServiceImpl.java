@@ -35,7 +35,7 @@ public class ClientDetailsServiceImpl implements ClientDetailsService {
         //授权范围，也可根据这个范围标识，进行鉴权
         baseClientDetails.setScope(Collections.singletonList("all"));
         //注册回调地址
-        baseClientDetails.setRegisteredRedirectUri(Collections.singleton("http://www.baidu.com"));
+        baseClientDetails.setRegisteredRedirectUri(Collections.singleton("http://127.0.0.1:9527/gatewaylogin"));
         //授权类型: 授权码、刷新令牌、密码、客户端、简化模式、短信验证码 "refresh_token"
         baseClientDetails.setAuthorizedGrantTypes(Arrays.asList("authorization_code", "password", "client_credentials", "implicit", "sms_code"));
         //授权码模式 授权页面是否自动授权

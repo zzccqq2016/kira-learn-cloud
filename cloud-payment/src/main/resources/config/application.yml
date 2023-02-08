@@ -7,9 +7,9 @@ spring:
       matching-strategy: ant-path-matcher
 
   datasource:
-    url: jdbc:${spring.sql.init.platform}://101.35.251.170:3306/kira_cloud?createDatabaseIfNotExist=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:${spring.sql.init.platform}://192.168.4.64:3306/kira_cloud?createDatabaseIfNotExist=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
-    password: Zhangxu00!
+    password: root@hiekn
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   sql:
@@ -18,9 +18,13 @@ spring:
       mode: always
       continue-on-error: true
       schema-locations: classpath*:db/schema/mysql.sql
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          public-key-location: classpath:config/public.txt
 
 
 server:
   port: 8001
-
 

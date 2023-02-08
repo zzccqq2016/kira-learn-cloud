@@ -6,15 +6,15 @@ spring:
       # 配置策略
       matching-strategy: ant-path-matcher
 #  security:
-  #    user:
-  #      name: admin
-  #      password: 123456
+#    user:
+#      name: admin
+#      password: 123456
 
 
   datasource:
-    url: jdbc:${spring.sql.init.platform}://192.168.1.4:3306/kira_cloud_user?createDatabaseIfNotExist=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:${spring.sql.init.platform}://${mysql.ip}:${mysql.port}/kira_cloud_user?createDatabaseIfNotExist=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
-    password: Zhangxu00!
+    password: root@hiekn
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   sql:
@@ -23,7 +23,7 @@ spring:
       continue-on-error: false
       schema-locations: classpath*:db/schema/init-schema-mysql.sql
       data-locations: classpath*:db/data/init-data-mysql.sql
-      mode: always
+      mode: ALWAYS
 
 #  security:
 #    oauth2:
@@ -32,4 +32,14 @@ spring:
 #          google:
 #            client-id: google-client-id
 #            client-secret: google-client-secret
-#            redirectUri: http://127.0.0.1:8888/test
+
+
+mysql:
+  ip: 192.168.4.64
+  port: 3306
+
+server:
+  servlet:
+    session:
+      cookie:
+        name: user

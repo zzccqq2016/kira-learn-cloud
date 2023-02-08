@@ -10,11 +10,23 @@ spring:
             - Path=/payment/**
         - id: order_route
           uri: lb://order
-#          uri: http://127.0.0.1
+          #          uri: http://127.0.0.1
           predicates:
             - Path=/order/**
-
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration
 
 server:
   port: 9527
+  servlet:
+    session:
+      cookie:
+        name: gateway
+security:
+  oauth2:
+    client:
+      client-id: client
+      client-secret: 123
+      user-authorization-uri: http://127.0.0.1:8080/oauth/authorize
+      access-token-uri: http://127.0.0.1:8080/oauth/token
 
