@@ -28,3 +28,10 @@ spring:
 server:
   port: 8001
 
+#web:
+#  security:
+#    excludeUrls:
+#     - /v2/api-docs
+#     - /swagger-resources/**
+#     - /doc.html
+#     - /webjars/**

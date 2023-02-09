@@ -85,71 +85,77 @@
             <version>${knife4j.version}</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-security</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.security</groupId>-->
-<!--            <artifactId>spring-security-oauth2-resource-server</artifactId>-->
-<!--            <version>5.7.4</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.security</groupId>-->
-<!--            <artifactId>spring-security-oauth2-jose</artifactId>-->
-<!--            <version>5.7.4</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-security</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-resource-server</artifactId>
+            <version>5.7.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-jose</artifactId>
+            <version>5.7.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-core</artifactId>
+            <version>5.7.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.nimbusds</groupId>
+            <artifactId>nimbus-jose-jwt</artifactId>
+            <version>9.22</version>
+        </dependency>
 
     </dependencies>
 
     <build>
 
         <finalName>${project.artifactId}</finalName>
-<!--        <plugins>-->
-<!--            &lt;!&ndash; 打包插件，防止运行jar包找到启动类 &ndash;&gt;-->
-<!--            <plugin>-->
-<!--                <groupId>org.springframework.boot</groupId>-->
-<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--            </plugin>-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-surefire-plugin</artifactId>-->
-<!--                <configuration>-->
-<!--                    <skipTests>true</skipTests>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-jar-plugin</artifactId>-->
-<!--                <configuration>-->
-<!--                    <archive>-->
-<!--                        <manifestEntries>-->
-<!--                            <Implementation-Version>${project.version}</Implementation-Version>-->
-<!--                            <Build-Timestamp>${timestamp}</Build-Timestamp>-->
-<!--                        </manifestEntries>-->
-<!--                    </archive>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-<!--            <plugin>-->
-<!--                <groupId>org.codehaus.mojo</groupId>-->
-<!--                <artifactId>buildnumber-maven-plugin</artifactId>-->
-<!--                <configuration>-->
-<!--                    <timestampFormat>yyyy-MM-dd HH:mm:ss</timestampFormat>-->
-<!--                </configuration>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <goals>-->
-<!--                            <goal>create-timestamp</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
+        <!--        <plugins>-->
+        <!--            &lt;!&ndash; 打包插件，防止运行jar包找到启动类 &ndash;&gt;-->
+        <!--            <plugin>-->
+        <!--                <groupId>org.springframework.boot</groupId>-->
+        <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+        <!--            </plugin>-->
+        <!--            <plugin>-->
+        <!--                <groupId>org.apache.maven.plugins</groupId>-->
+        <!--                <artifactId>maven-surefire-plugin</artifactId>-->
+        <!--                <configuration>-->
+        <!--                    <skipTests>true</skipTests>-->
+        <!--                </configuration>-->
+        <!--            </plugin>-->
+        <!--            <plugin>-->
+        <!--                <groupId>org.apache.maven.plugins</groupId>-->
+        <!--                <artifactId>maven-jar-plugin</artifactId>-->
+        <!--                <configuration>-->
+        <!--                    <archive>-->
+        <!--                        <manifestEntries>-->
+        <!--                            <Implementation-Version>${project.version}</Implementation-Version>-->
+        <!--                            <Build-Timestamp>${timestamp}</Build-Timestamp>-->
+        <!--                        </manifestEntries>-->
+        <!--                    </archive>-->
+        <!--                </configuration>-->
+        <!--            </plugin>-->
+        <!--            <plugin>-->
+        <!--                <groupId>org.codehaus.mojo</groupId>-->
+        <!--                <artifactId>buildnumber-maven-plugin</artifactId>-->
+        <!--                <configuration>-->
+        <!--                    <timestampFormat>yyyy-MM-dd HH:mm:ss</timestampFormat>-->
+        <!--                </configuration>-->
+        <!--                <executions>-->
+        <!--                    <execution>-->
+        <!--                        <goals>-->
+        <!--                            <goal>create-timestamp</goal>-->
+        <!--                        </goals>-->
+        <!--                    </execution>-->
+        <!--                </executions>-->
+        <!--            </plugin>-->
+        <!--        </plugins>-->
     </build>
 
 </project>

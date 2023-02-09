@@ -4,15 +4,18 @@ import kira.learn.cloud.app.service.PaymentService;
 import kira.learn.cloud.common.bean.common.CommonResp;
 import kira.learn.cloud.common.bean.po.Payment;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author: Zhang Chaoqing
  * @date: 2022/12/21 21:14
  */
 @Slf4j
-@RequestMapping("payment")
+@RequestMapping()
 @RestController
 public class PaymentController {
 
@@ -31,6 +34,8 @@ public class PaymentController {
     }
 
 
+    @Autowired
+    private HttpServletRequest request;
     @GetMapping("get/{id}")
     public CommonResp<?> get(@PathVariable Integer id) {
         CommonResp<Payment> success = CommonResp.success(paymentService.getPaymentById(id));

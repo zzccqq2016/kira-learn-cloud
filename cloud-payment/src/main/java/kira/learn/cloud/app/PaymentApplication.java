@@ -3,7 +3,6 @@ package kira.learn.cloud.app;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 
 /**
  * @author: Zhang Chaoqing
