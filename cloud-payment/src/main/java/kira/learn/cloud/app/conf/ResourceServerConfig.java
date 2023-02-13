@@ -48,6 +48,8 @@ public class ResourceServerConfig extends WebSecurityConfigurerAdapter {
         if (!CollectionUtils.isEmpty(webSecurityProperties.getExcludeUrls())) {
             urls.addAll(webSecurityProperties.getExcludeUrls());
         }
-        web.ignoring().requestMatchers(new OrRequestMatcher(urls.stream().map(AntPathRequestMatcher::new).collect(Collectors.toList())));
+        if (!CollectionUtils.isEmpty(urls)) {
+            web.ignoring().requestMatchers(new OrRequestMatcher(urls.stream().map(AntPathRequestMatcher::new).collect(Collectors.toList())));
+        }
     }
 }

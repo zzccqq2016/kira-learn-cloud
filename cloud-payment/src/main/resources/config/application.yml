@@ -7,7 +7,7 @@ spring:
       matching-strategy: ant-path-matcher
 
   datasource:
-    url: jdbc:${spring.sql.init.platform}://192.168.4.64:3306/kira_cloud?createDatabaseIfNotExist=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:${spring.sql.init.platform}://${mysql.ip}:${mysql.port}/kira_cloud?createDatabaseIfNotExist=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: root@hiekn
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -28,10 +28,15 @@ spring:
 server:
   port: 8001
 
-#web:
-#  security:
-#    excludeUrls:
-#     - /v2/api-docs
-#     - /swagger-resources/**
-#     - /doc.html
-#     - /webjars/**
+mysql:
+  ip: 192.168.1.4
+  port: 3306
+
+web:
+  security:
+    excludeUrls:
+     - /v2/api-docs
+     - /swagger-resources/**
+     - /doc.html
+     - /webjars/**
+
